@@ -1,7 +1,28 @@
-TODO:
+# README
 
-* Address potential bgs
-  - thickness with (apparently) incorrect dimensions in getCoatAbsorption.py (copied directly from Matlab)
-  - potentially additional factor of T in getCoatNoise.py (copied directly from Matlab)
+A thermal noise calculator for multilayer optical coatings.
+
+## Bugs
+
+* [ ] Need to restart after each calculation
+* [ ] Ensure code runs on Windows
+* [ ] Ensure code runs on MacOS
+
+## TODO
+
 * Refactor
-* Add GUI interface
+
+  - [ ] Pull dialog specific code out of main window class
+  - [ ] Extensive refactor of thermal noise calculations
+  - [ ] Extensive refactor of GUI code
+  - [ ] Extensive redesign of directory layout. Use modules and packages!!!
+
+* [ ] Add unit tests
+
+* [x] Add GUI interface
+
+* [ ] JIRA board to track bugs and desired features?
+
+## Desired features
+
+* [ ] Delete materials
