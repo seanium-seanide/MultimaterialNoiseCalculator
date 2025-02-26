@@ -10,7 +10,7 @@ A thermal noise calculator for multilayer optical coatings.
 
 ## TODO
 
-* Refactor
+* [ ] Refactor
   - [ ] Pull dialog specific code out of main window class
   - [ ] Extensive refactor of thermal noise calculations
   - [ ] Extensive refactor of GUI code
