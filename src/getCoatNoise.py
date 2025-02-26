@@ -17,11 +17,11 @@ def getCoatNoise(f, wl, wBeam, T, materialParams, materialSub, materialLayer
 
     Outputs
     -------
-    SbrZ
-    StoZ
-    SteZ
-    StrZ
-    BrLayer
+    SbrZ: Coating brownian noise
+    StoZ: Thermo-optic noise
+    SteZ: Thermo-elastic noise
+    StrZ: Thermo-refractive noise
+    brLayer: Coating thermal noise for each layer
     """
 
     # Reciprocal thermodynamic beta
@@ -39,7 +39,7 @@ def getCoatNoise(f, wl, wBeam, T, materialParams, materialSub, materialLayer
 
     # Material property vectors
     nN = np.zeros(np.size(dOpt), np.float64)
-    aN = np.zeros(np.size(dOpt), np.int32)
+    aN = np.zeros(np.size(dOpt), np.float64)
     alphaN = np.zeros(np.size(dOpt), np.float64)
     betaN = np.zeros(np.size(dOpt), np.float64)
     kappaN = np.zeros(np.size(dOpt), np.float64)

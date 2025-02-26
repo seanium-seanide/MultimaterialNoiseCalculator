@@ -1,0 +1,10 @@
+name = "SiO_2-bulk"
+a = 1e-9
+alpha = 1e-6
+beta = 1e-6
+kappa = 1
+C = 1e6
+n = 1.45
+Y = 73.2e9
+prat = 0.17
+phiM = 1e-9

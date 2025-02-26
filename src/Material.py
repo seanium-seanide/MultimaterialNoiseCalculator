@@ -1,15 +1,23 @@
-from dataclasses import dataclass
-from numpy import float64, int64
+import dataclasses
+from numpy import float64
 
-@dataclass
+@dataclasses.dataclass
 class Material:
-    name: str
-    a: int64
-    alpha: float64
-    beta: float64
-    kappa: int64
-    C: float64
-    n: float64
-    Y: float64
-    prat: float64
-    phiM: float64
+    name: str = ""          # Description
+    a: float64 = 0.0        # Absorption per length
+    alpha: float64 = 0.0    # Thermal expansion coefficient
+    beta: float64 = 0.0     # Derivative of refractive index w.r.t temperature
+    kappa: float64 = 0.0    # Thermal conductivity
+    C: float64 = 0.0        # Heat capacity per volume
+    n: float64 = 0.0        # Refractive index
+    Y: float64 = 0.0        # Young's modulus
+    prat: float64 = 0.0     # Poisson's rratio
+    phiM: float64 = 0.0     # Mechanical loss
+
+    """
+    def __post_init__(self):
+        for field in dataclasses.fields(self):
+            if not isinstance(field.default, dataclasses._MISSING_TYPE) \
+                    and getattr(self, field.name) is None:
+                setattr(self, field.name, field.default)
+    """

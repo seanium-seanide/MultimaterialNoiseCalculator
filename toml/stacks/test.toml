@@ -1,0 +1,4 @@
+# Multilayer Stack Specification
+
+materials = ["TiGeO_2-ave", "SiO_2-ave", "TiGeO_2-ave"]
+thicknesses = [104.0, 210.0, 104.0]

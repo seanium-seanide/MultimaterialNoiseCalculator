@@ -1,0 +1,10 @@
+name = "TiGeO_2-ave"
+a = 0
+alpha = 1e-6
+beta = 1e-6
+kappa = 1
+C = 1e6
+n = 1.88
+Y = 74e9
+prat = 0.22
+phiM = 3.21e-4
