@@ -2,6 +2,16 @@
 
 A thermal noise calculator for multilayer optical coatings.
 
+## Prerequisites
+
+```
+tomlkit
+PySide6
+numpy
+matplotlib
+scipy # future
+```
+
 ## Bugs
 
 * [ ] Need to restart after each calculation
