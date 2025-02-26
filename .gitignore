@@ -1,3 +1,5 @@
 *.swp
 plot
 __pycache__
+notes.md
+playground/
