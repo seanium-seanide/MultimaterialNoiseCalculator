@@ -7,26 +7,30 @@ from PySide6 import QtCore as qtc
 from PySide6 import QtWidgets as qtw
 from PySide6 import QtGui as qtg
 
-from Ui_MainWindow import Ui_MainWindow
+from ui.Ui_MainWindow import Ui_MainWindow
 
-from AddMaterialDialog import AddMaterialDialog
-from InterfParamsDialog import InterfParamsDialog
-from ViewMaterialsDialog import ViewMaterialsDialog
+from windows.AddMaterialDialog import AddMaterialDialog
+from windows.InterfParamsDialog import InterfParamsDialog
+from windows.ViewMaterialsDialog import ViewMaterialsDialog
 
-from Interferometer import Interferometer
+from containers.Interferometer import Interferometer
+from containers.Material import Material
 
 import numpy as np
 from numpy import float64
 from numpy import int32
 
+import matplotlib
+#matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 plt.rcParams["text.usetex"] = True
+plt.rcParams["figure.dpi"] = 100
+plt.rcParams["savefig.dpi"] = 100
 
-from getCoatAbsorption import getCoatAbsorption
-from getCoatRefl import getCoatRefl
-from getCoatNoise import getCoatNoise
-
-from Material import Material
+from calculations.getCoatAbsorption import getCoatAbsorption
+from calculations.getCoatRefl import getCoatRefl
+from calculations.getCoatNoise import getCoatNoise
 
 class MainWindow(qtw.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None, *args, **kwargs):
@@ -87,7 +91,9 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
         # Initialise interferometer params
         self.interferometer = Interferometer(0.062, 1064e-9, 290)
 
-        self.outcount = 0
+        # Output file count
+
+        #self.outcount = 0
 
     def addMaterials(self, mata, matb):
         newMaterial = Material(
@@ -243,10 +249,19 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
 
             return
 
-        # Populate table
+        # Clear table
 
         table = self.tableWidget
-        table.clearContents()
+        #table.clearContents()
+        table.setRowCount(0)
+        #print(f"Num rows: {table.rowCount()}")
+
+        """
+        for i in range(table.rowCount()):
+            table.removeRow(i)
+        """
+
+        # Populate table
 
         for i in range(len(stackMaterials)):
             table.insertRow(i)
@@ -364,12 +379,11 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
         ######################################################
 
         # Params
-        f = np.logspace(0, 2, 100)
+        f = np.logspace(0, 3, 1000)
         wBeam = self.interferometer.w
         wl = self.interferometer.wl
         Temp = self.interferometer.T
 
-        # Nominal
         rCoat, dcdp, rbar, r = getCoatRefl(1, nSub, nLayer, dOpt)
         absCoat, absLayer, powerLayer, rho = getCoatAbsorption(
                 wl, dOpt, aLayer, nLayer, rbar, r
@@ -378,79 +392,23 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
             f, wl, wBeam, Temp, materialParams, materialSub, materialLayer, dOpt, dcdp
         )
 
-        
-        ######################################
-        # Construct new materials for errors #
-        ######################################
-
-        """
-        self.materialPerms = []
-
-        for name, material in self.materials.items:
-            name = material.name
-            material = materil
-
-            # Lower bounds on prat
-            self.minMaterials[name] = deepcopy(material)
-            self.minMaterials[name].prat -= self.materialErrors[name].prat
-            self.minMaterials[name].prat += self.materialErrors[name]
-
-            # Upper bounds on prat
-
-            # Mixed1
-
-            # Mixed2
-        """
-    
-        #######################
-        # Generate error data #
-        #######################
-
-        """
-        # a
-        params = deepcopy(materialParams)
-        for i in range(len(params)):
-            name = params[i].name
-            material = self.materialErrors[name]
-            params[i] = addMaterials(params[i], material)
-
-        self.materialErrors["TiGeO_2-ave"] = tigeo2
-        self.materialErrors["SiO_2-ave"] = sio2
-        self.materialErrors["SiO_2-bulk"] = substrate
-        SbrZa, StoZa, SteZa, StrZa, brLayera = getCoatNoise(
-            f, wl, wBeam, Temp, materialParams, materialSub, materialLayer, dOpt, dcdp
-        )
-
-        # b
-        SbrZb, StoZb, SteZb, StrZb, brLayerb = getCoatNoise(
-            f, wl, wBeam, Temp, materialParams, materialSub, materialLayer, dOpt, dcdp
-        )
-
-        # c
-        SbrZc, StoZc, SteZc, StrZc, brLayerc = getCoatNoise(
-            f, wl, wBeam, Temp, materialParams, materialSub, materialLayer, dOpt, dcdp
-        )
-
-        # d
-        SbrZd, StoZd, SteZd, StrZd, brLayerd = getCoatNoise(
-            f, wl, wBeam, Temp, materialParams, materialSub, materialLayer, dOpt, dcdp
-        )
-        """
-
         ##############
         # Write data #
         ##############
 
-        data = np.column_stack((f, np.sqrt(SbrZ)))
-        np.savetxt(f"outfile_{self.outcount}.dat", data)
+        # Get output file name
+        filename = qtw.QFileDialog.getSaveFileName()[0]
 
-        ++self.outcount
+        data = np.column_stack((f, np.sqrt(SbrZ)))
+        np.savetxt(filename, data)
 
         #########
         # Plots #
         #########
 
+        #
         # Absorption
+        #
 
         fig1, ax1 = plt.subplots()
         ax1.set_yscale("log")
@@ -463,12 +421,14 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
 
         ax1.set_title("Absorption Values")
         ax1.set_xlabel("Layer Number")
-        ax1.set_xlim([0, 40])
+        ax1.set_xlim([0, len(rho) + 1])
         #ax1.set_ylim([1e-6, 1e1])
         ax1.grid(axis='x')
         ax1.grid(axis='y', linestyle='--')
 
+        #
         # Noise weights for each layer
+        #
 
         fig2, ax2 = plt.subplots()
 
@@ -481,12 +441,14 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
 
         ax2.set_title("Noise Weights for Each Layer")
         ax2.set_xlabel("Layer Number")
-        ax2.set_xlim([0, 40])
+        ax2.set_xlim([0, len(rho) + 1])
         #ax2.set_ylim([0, 2.5])
         ax2.grid(axis='x')
         ax2.grid(axis='y', linestyle='--')
 
+        #
         # Noise plots
+        #
 
         fig3, ax3 = plt.subplots()
         ax3.set_xscale("log")
@@ -502,8 +464,14 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
         ax3.set_title("Thermal Noise")
         ax3.set_xlabel("frequency [Hz]")
         ax3.set_ylabel(r"thermal noise [$\textrm{m}/\sqrt{\textrm{Hz}}$]")
-        ax3.set_xlim([1e0, 1e2])
-        #ax3.set_ylim([1e-22, 1e-19])
+        ax3.set_xlim([1e0, 1e3])
+        
+        freqVal = float64(100.0)
+        index = (np.abs(f - freqVal)).argmin()
+        noiseVal = np.sqrt(SbrZ[index])
+        ax3.text(0.1, 0.1, f"CTN @ 100 Hz = {noiseVal:.8g}", weight="bold"
+            , ha="left", va="top", transform=ax3.transAxes
+        )
 
         # Display plots
         plt.show()

@@ -23,7 +23,7 @@ class Ui_InterfParamsDialog(object):
     def setupUi(self, InterfParamsDialog):
         if not InterfParamsDialog.objectName():
             InterfParamsDialog.setObjectName(u"InterfParamsDialog")
-        InterfParamsDialog.resize(442, 300)
+        InterfParamsDialog.resize(385, 300)
         self.gridLayout = QGridLayout(InterfParamsDialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.buttonBox = QDialogButtonBox(InterfParamsDialog)
@@ -86,11 +86,11 @@ class Ui_InterfParamsDialog(object):
     def retranslateUi(self, InterfParamsDialog):
         InterfParamsDialog.setWindowTitle(QCoreApplication.translate("InterfParamsDialog", u"Interferometer Parameters", None))
         self.groupBox.setTitle(QCoreApplication.translate("InterfParamsDialog", u"Enter Interferometer Parameters", None))
-        self.label.setText(QCoreApplication.translate("InterfParamsDialog", u"Beam Width:", None))
+        self.label.setText(QCoreApplication.translate("InterfParamsDialog", u"Beam Width [m]:", None))
         self.lineEdit.setText(QCoreApplication.translate("InterfParamsDialog", u"0.062", None))
-        self.label_2.setText(QCoreApplication.translate("InterfParamsDialog", u"Wavelength:", None))
+        self.label_2.setText(QCoreApplication.translate("InterfParamsDialog", u"Wavelength [m]:", None))
         self.lineEdit_2.setText(QCoreApplication.translate("InterfParamsDialog", u"1064e-9", None))
-        self.label_3.setText(QCoreApplication.translate("InterfParamsDialog", u"Temperature:", None))
+        self.label_3.setText(QCoreApplication.translate("InterfParamsDialog", u"Temperature [K]:", None))
         self.lineEdit_3.setText(QCoreApplication.translate("InterfParamsDialog", u"290", None))
     # retranslateUi
 

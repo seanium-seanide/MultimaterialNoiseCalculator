@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>442</width>
+    <width>385</width>
     <height>300</height>
    </rect>
   </property>
@@ -36,7 +36,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Beam Width:</string>
+         <string>Beam Width [m]:</string>
         </property>
        </widget>
       </item>
@@ -50,7 +50,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Wavelength:</string>
+         <string>Wavelength [m]:</string>
         </property>
        </widget>
       </item>
@@ -64,7 +64,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Temperature:</string>
+         <string>Temperature [K]:</string>
         </property>
        </widget>
       </item>

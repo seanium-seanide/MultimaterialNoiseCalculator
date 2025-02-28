@@ -1,13 +1,14 @@
 import sys
+from copy import deepcopy
 
 from PySide6 import QtWidgets as qtw
 from PySide6 import QtGui as qtg
 
 from numpy import float64
 
-from Ui_InterfParamsDialog import Ui_InterfParamsDialog
+from ui.Ui_InterfParamsDialog import Ui_InterfParamsDialog
 
-from Interferometer import Interferometer
+from containers.Interferometer import Interferometer
 
 from numpy import float64
 
@@ -23,17 +24,17 @@ class InterfParamsDialog(qtw.QDialog, Ui_InterfParamsDialog):
             formLayout.itemAt(i, qtw.QFormLayout.FieldRole).widget()\
                     .setValidator(qtg.QDoubleValidator())
 
-        # Set initial interferometer params
-        beamWidth = float64(
-            formLayout.itemAt(0, qtw.QFormLayout.FieldRole).widget().text()
-        )
-        wavelength = float64(
-            formLayout.itemAt(0, qtw.QFormLayout.FieldRole).widget().text()
-        )
-        temp = float64(
-            formLayout.itemAt(0, qtw.QFormLayout.FieldRole).widget().text()
-        )
-        self.interferometer = Interferometer(beamWidth, wavelength, temp)
+        # Populate interferometer params
+
+        self.interferometer = deepcopy(self.parent().interferometer)
+
+        beamWidth = str(self.interferometer.w)
+        wavelength = str(self.interferometer.wl)
+        temperature = str(self.interferometer.T)
+
+        formLayout.itemAt(0, qtw.QFormLayout.FieldRole).widget().setText(beamWidth)
+        formLayout.itemAt(1, qtw.QFormLayout.FieldRole).widget().setText(wavelength)
+        formLayout.itemAt(2, qtw.QFormLayout.FieldRole).widget().setText(temperature)
 
     def accept(self):
         formLayout = self.groupBox.layout()

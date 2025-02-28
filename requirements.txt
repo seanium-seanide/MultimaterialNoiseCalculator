@@ -1,0 +1,4 @@
+tomlkit
+PySide6
+numpy
+matplotlib

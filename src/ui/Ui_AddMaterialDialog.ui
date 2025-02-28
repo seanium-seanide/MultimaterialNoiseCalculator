@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>461</width>
+    <width>439</width>
     <height>451</height>
    </rect>
   </property>
@@ -46,7 +46,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Name:</string>
+         <string>Name</string>
         </property>
        </widget>
       </item>
@@ -60,7 +60,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Absorption:</string>
+         <string>Absorption Coefficient (a) [m⁻¹]</string>
         </property>
        </widget>
       </item>
@@ -74,7 +74,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Thermal Expansion Coefficient:</string>
+         <string>Thermal Expansion Coefficient (α) [K⁻¹]</string>
         </property>
        </widget>
       </item>
@@ -88,7 +88,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Beta:</string>
+         <string>Thermo-optic Coefficient (dn/dθ) [K⁻¹]</string>
         </property>
        </widget>
       </item>
@@ -102,7 +102,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Thermal Conductivity:</string>
+         <string>Thermal Conductivity (κ) [W m⁻¹ K⁻¹]</string>
         </property>
        </widget>
       </item>
@@ -116,7 +116,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Heat Capacity:</string>
+         <string>Volumetric Heat Capacity (C/V) [J K⁻¹ m⁻³]</string>
         </property>
        </widget>
       </item>
@@ -130,7 +130,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="label_7">
         <property name="text">
-         <string>Refractive Index:</string>
+         <string>Refractive Index (n) [1]</string>
         </property>
        </widget>
       </item>
@@ -144,7 +144,7 @@
       <item row="7" column="0">
        <widget class="QLabel" name="label_8">
         <property name="text">
-         <string>Young's Modulus:</string>
+         <string>Young's Modulus (Y) [Pa]</string>
         </property>
        </widget>
       </item>
@@ -158,14 +158,14 @@
       <item row="8" column="0">
        <widget class="QLabel" name="label_9">
         <property name="text">
-         <string>Poisson's Ratio:</string>
+         <string>Poisson's Ratio (ν) [1]</string>
         </property>
        </widget>
       </item>
       <item row="9" column="0">
        <widget class="QLabel" name="label_10">
         <property name="text">
-         <string>Mechanical Loss:</string>
+         <string>Mechanical Loss (ϕₘ) [1]</string>
         </property>
        </widget>
       </item>

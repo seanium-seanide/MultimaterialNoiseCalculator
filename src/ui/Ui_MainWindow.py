@@ -17,9 +17,9 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QGroupBox, QHeaderView,
-    QMainWindow, QMenu, QMenuBar, QPushButton,
-    QSizePolicy, QSpacerItem, QStatusBar, QTableWidget,
-    QTableWidgetItem, QVBoxLayout, QWidget)
+    QLabel, QMainWindow, QMenu, QMenuBar,
+    QPushButton, QSizePolicy, QSpacerItem, QStatusBar,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -77,6 +77,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.tableWidget, 0, 0, 1, 4)
 
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+        self.label.setAlignment(Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignTop)
+
+        self.gridLayout.addWidget(self.label, 0, 4, 1, 1)
+
 
         self.verticalLayout.addWidget(self.groupBox)
 
@@ -124,7 +130,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Material", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Thickness", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Thickness [m]", None));
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Layer 1 is the substrate!", None))
         self.computeStackButton.setText(QCoreApplication.translate("MainWindow", u"Compute Stack Properties", None))
         self.menuMaterials.setTitle(QCoreApplication.translate("MainWindow", u"Materials", None))
         self.menuOptions.setTitle(QCoreApplication.translate("MainWindow", u"Options", None))

@@ -5,9 +5,9 @@ from PySide6 import QtGui as qtg
 
 from numpy import float64
 
-from Ui_ViewMaterialsDialog import Ui_ViewMaterialsDialog
+from ui.Ui_ViewMaterialsDialog import Ui_ViewMaterialsDialog
 
-from Material import Material
+from containers.Material import Material
 
 class ViewMaterialsDialog(qtw.QDialog, Ui_ViewMaterialsDialog):
     def __init__(self, parent=None, *args, **kwargs):

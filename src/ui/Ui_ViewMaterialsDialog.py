@@ -84,22 +84,22 @@ class Ui_ViewMaterialsDialog(object):
         ___qtablewidgetitem = self.tableWidget.verticalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidget.verticalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Absorption", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Absorption Coefficient (a) [m\u207b\u00b9]", None));
         ___qtablewidgetitem2 = self.tableWidget.verticalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Alpha", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Thermal Expansion Coefficient (\u03b1) [K\u207b\u00b9]", None));
         ___qtablewidgetitem3 = self.tableWidget.verticalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Beta", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Thermo-optic Coefficient (dn/d\u03b8) [K\u207b\u00b9]", None));
         ___qtablewidgetitem4 = self.tableWidget.verticalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Kappa", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Thermal Conductivity (\u03ba) [W m\u207b\u00b9 K\u207b\u00b9]", None));
         ___qtablewidgetitem5 = self.tableWidget.verticalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Heat Capacity", None));
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Volumetric Heat Capacity (C/V) [J K\u207b\u00b9 m\u207b\u00b3]", None));
         ___qtablewidgetitem6 = self.tableWidget.verticalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Refractive Index", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Refractive Index (n) [1]", None));
         ___qtablewidgetitem7 = self.tableWidget.verticalHeaderItem(7)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Young's Modulus", None));
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Young's Modulus (Y) [Pa]", None));
         ___qtablewidgetitem8 = self.tableWidget.verticalHeaderItem(8)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Poisson's Ratio", None));
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Poisson's Ratio (\u03bd) [1]", None));
         ___qtablewidgetitem9 = self.tableWidget.verticalHeaderItem(9)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Mechanical Loss", None));
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("ViewMaterialsDialog", u"Mechanical Loss (\u03d5\u2098) [1]", None));
     # retranslateUi
 

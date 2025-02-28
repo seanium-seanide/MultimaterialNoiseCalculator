@@ -71,9 +71,19 @@
          </column>
          <column>
           <property name="text">
-           <string>Thickness</string>
+           <string>Thickness [m]</string>
           </property>
          </column>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Layer 1 is the substrate!</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+         </property>
         </widget>
        </item>
       </layout>

@@ -42,47 +42,47 @@
         </row>
         <row>
          <property name="text">
-          <string>Absorption</string>
+          <string>Absorption Coefficient (a) [m⁻¹]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Alpha</string>
+          <string>Thermal Expansion Coefficient (α) [K⁻¹]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Beta</string>
+          <string>Thermo-optic Coefficient (dn/dθ) [K⁻¹]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Kappa</string>
+          <string>Thermal Conductivity (κ) [W m⁻¹ K⁻¹]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Heat Capacity</string>
+          <string>Volumetric Heat Capacity (C/V) [J K⁻¹ m⁻³]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Refractive Index</string>
+          <string>Refractive Index (n) [1]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Young's Modulus</string>
+          <string>Young's Modulus (Y) [Pa]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Poisson's Ratio</string>
+          <string>Poisson's Ratio (ν) [1]</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>Mechanical Loss</string>
+          <string>Mechanical Loss (ϕₘ) [1]</string>
          </property>
         </row>
         <row>
